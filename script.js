@@ -1,67 +1,58 @@
-// Обновление отображения выбранной вакансии и включение соответствующего слайдера
-function updateVacancy() {
-  const vacancy = document.getElementById('vacancy').value;
-  const sections = document.querySelectorAll('.vacancy-section');
-
-  sections.forEach(section => {
-    section.style.display = 'none';
-  });
-
-  if (vacancy === 'courier') {
-    document.getElementById('courierSection').style.display = 'block';
-  } else if (vacancy === 'chemist') {
-    document.getElementById('chemistSection').style.display = 'block';
-  } else if (vacancy === 'warehouse') {
-    document.getElementById('warehouseSection').style.display = 'block';
-  }
-
-  updateSalary(vacancy);  // Обновляем зарплату при изменении вакансии
+/* Основные стили */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-// Функция для обновления зарплаты
-function updateSalary(vacancy) {
-  const dayRate = 2400; // Ставка за день для курьера
-  const multiplier = {
-    courier: 2400,
-    chemist: 3000, // Примерная ставка для химика
-    warehouse: 2000, // Примерная ставка для склада
-  };
-
-  const days = document.getElementById(vacancy + 'Days').value;
-  const daySalary = multiplier[vacancy] * days;
-  const weekSalary = daySalary * 5;  // Предположим, что рабочая неделя - 5 дней
-  const monthSalary = weekSalary * 4;  // Месяц - 4 недели
-  const yearSalary = monthSalary * 12;  // Год - 12 месяцев
-
-  // Обновление значений под ползунком
-  document.getElementById(vacancy + 'DaysValue').textContent = days;
-
-  // Обновление значений зарплаты
-  document.getElementById('daySalary').textContent = daySalary;
-  document.getElementById('weekSalary').textContent = weekSalary;
-  document.getElementById('monthSalary').textContent = monthSalary;
-  document.getElementById('yearSalary').textContent = yearSalary;
+.container {
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
 }
 
-// Функция для обновления значения под ползунком
-function updateSliderValue(sliderId, valueId) {
-  const slider = document.getElementById(sliderId);
-  const valueDisplay = document.getElementById(valueId);
-  
-  // Обновляем значение под ползунком
-  valueDisplay.textContent = slider.value;
-  
-  // В случае с изменением дней, мы также обновляем зарплату
-  const vacancy = document.getElementById('vacancy').value;
-  updateSalary(vacancy);
+h1 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
 }
 
-// Инициализация
-document.addEventListener('DOMContentLoaded', () => {
-  updateVacancy();  // Инициализация выбранной вакансии
+.vacancy-select {
+  margin-bottom: 30px;
+  text-align: left;
+}
 
-  // Добавляем обработчик событий для каждого ползунка
-  document.getElementById('courierDays').addEventListener('input', () => updateSliderValue('courierDays', 'courierDaysValue'));
-  document.getElementById('chemistDays').addEventListener('input', () => updateSliderValue('chemistDays', 'chemistDaysValue'));
-  document.getElementById('warehouseDays').addEventListener('input', () => updateSliderValue('warehouseDays', 'warehouseDaysValue'));
-});
+label {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 10px;
+  display: block;
+}
+
+select {
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.vacancy-section {
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+input[type="range"] {
+  width: 100%;
+  margin: 10px 0;
+  -webkit-appearance: none;
+  background: #ddd;
+  height: 8px;
