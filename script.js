@@ -43,45 +43,45 @@ function updateJob2Form() {
   
   if (job2Option === '1') {  // ГОРОД
     job2Slider.innerHTML = `
-      <label>Количество доставок (50 – 5000):</label>
+      <label> (50 – 5000):</label>
       <input type="range" id="deliveriesJob2_50" min="1" max="40" value="1" onchange="calculateJob2Salary()">
       <p>50: <span id="deliveriesJob2_50Value">1</span></p>
       
-      <label>Количество доставок (100 – 8000):</label>
+      <label>(100 – 8000):</label>
       <input type="range" id="deliveriesJob2_100" min="1" max="40" value="1" onchange="calculateJob2Salary()">
       <p>100: <span id="deliveriesJob2_100Value">1</span></p>
       
-      <label>Количество доставок (200 – 15000):</label>
+      <label> (200 – 15000):</label>
       <input type="range" id="deliveriesJob2_200" min="1" max="40" value="1" onchange="calculateJob2Salary()">
       <p>200: <span id="deliveriesJob2_200Value">1</span></p>
       
-      <label>Количество доставок (300 – 20000):</label>
+      <label> (300 – 20000):</label>
       <input type="range" id="deliveriesJob2_300" min="1" max="40" value="1" onchange="calculateJob2Salary()">
       <p>300: <span id="deliveriesJob2_300Value">1</span></p>
       
-      <label>Количество доставок (500 – 30000):</label>
+      <label> (500 – 30000):</label>
       <input type="range" id="deliveriesJob2_500" min="1" max="40" value="1" onchange="calculateJob2Salary()">
       <p>500: <span id="deliveriesJob2_500Value">1</span></p>
     `;
   } else {  // ЛЕС
     job2Slider.innerHTML = `
-      <label>Количество доставок (50 – 3000):</label>
+      <label> (50 – 3000):</label>
       <input type="range" id="deliveriesJob2_50" min="1" max="40" value="1" onchange="calculateJob2Salary()">
       <p>50: <span id="deliveriesJob2_50Value">1</span></p>
       
-      <label>Количество доставок (100 – 6000):</label>
+      <label> (100 – 6000):</label>
       <input type="range" id="deliveriesJob2_100" min="1" max="40" value="1" onchange="calculateJob2Salary()">
       <p>100: <span id="deliveriesJob2_100Value">1</span></p>
       
-      <label>Количество доставок (200 – 9000):</label>
+      <label> (200 – 9000):</label>
       <input type="range" id="deliveriesJob2_200" min="1" max="40" value="1" onchange="calculateJob2Salary()">
       <p>200: <span id="deliveriesJob2_200Value">1</span></p>
       
-      <label>Количество доставок (300 – 13000):</label>
+      <label> (300 – 13000):</label>
       <input type="range" id="deliveriesJob2_300" min="1" max="40" value="1" onchange="calculateJob2Salary()">
       <p>300: <span id="deliveriesJob2_300Value">1</span></p>
       
-      <label>Количество доставок (500 – 20000):</label>
+      <label> (500 – 20000):</label>
       <input type="range" id="deliveriesJob2_500" min="1" max="40" value="1" onchange="calculateJob2Salary()">
       <p>500: <span id="deliveriesJob2_500Value">1</span></p>
     `;
