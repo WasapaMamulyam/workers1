@@ -43,48 +43,54 @@ function updateJob2Form() {
   
   if (job2Option === '1') {  // ГОРОД
     job2Slider.innerHTML = `
-      <label>50г :</label>
+      <label> 50г :</label>
       <input type="range" id="deliveriesJob2_50" min="1" max="40" value="1" onchange="calculateJob2Salary()">
       <p>50: <span id="deliveriesJob2_50Value">1</span></p>
       
-      <label>100г :</label>
+      <label> 100г :</label>
       <input type="range" id="deliveriesJob2_100" min="1" max="40" value="1" onchange="calculateJob2Salary()">
       <p>100: <span id="deliveriesJob2_100Value">1</span></p>
       
-      <label>200г :</label>
+      <label> 200г :</label>
       <input type="range" id="deliveriesJob2_200" min="1" max="40" value="1" onchange="calculateJob2Salary()">
       <p>200: <span id="deliveriesJob2_200Value">1</span></p>
       
-      <label>300г :</label>
+      <label> 300г :</label>
       <input type="range" id="deliveriesJob2_300" min="1" max="40" value="1" onchange="calculateJob2Salary()">
       <p>300: <span id="deliveriesJob2_300Value">1</span></p>
       
-      <label>500г :</label>
+      <label> 500г :</label>
       <input type="range" id="deliveriesJob2_500" min="1" max="40" value="1" onchange="calculateJob2Salary()">
       <p>500: <span id="deliveriesJob2_500Value">1</span></p>
-    `;
+      
+      <label> Количество рабочих дней в неделю :</label>
+      <input type="range" id="workingDaysJob2" min="1" max="7" value="1" onchange="calculateJob2Salary()">
+      <p>Значение: <span id="workingDaysJob2Value">1</span></p>`;
   } else {  // ЛЕС
     job2Slider.innerHTML = `
-      <label>50г :</label>
+      <label> 50г :</label>
       <input type="range" id="deliveriesJob2_50" min="1" max="40" value="1" onchange="calculateJob2Salary()">
       <p>50: <span id="deliveriesJob2_50Value">1</span></p>
       
-      <label>100г :</label>
+      <label> 100г :</label>
       <input type="range" id="deliveriesJob2_100" min="1" max="40" value="1" onchange="calculateJob2Salary()">
       <p>100: <span id="deliveriesJob2_100Value">1</span></p>
       
-      <label>200г :</label>
+      <label> 200г :</label>
       <input type="range" id="deliveriesJob2_200" min="1" max="40" value="1" onchange="calculateJob2Salary()">
       <p>200: <span id="deliveriesJob2_200Value">1</span></p>
       
-      <label>300г :</label>
+      <label> 300г :</label>
       <input type="range" id="deliveriesJob2_300" min="1" max="40" value="1" onchange="calculateJob2Salary()">
       <p>300: <span id="deliveriesJob2_300Value">1</span></p>
       
-      <label>500г :</label>
+      <label> 500г :</label>
       <input type="range" id="deliveriesJob2_500" min="1" max="40" value="1" onchange="calculateJob2Salary()">
       <p>500: <span id="deliveriesJob2_500Value">1</span></p>
-    `;
+      
+      <label> Количество рабочих дней в неделю :</label>
+      <input type="range" id="workingDaysJob2" min="1" max="7" value="1" onchange="calculateJob2Salary()">
+      <p>Значение: <span id="workingDaysJob2Value">1</span></p>`;
   }
 }
 
@@ -96,14 +102,21 @@ function calculateJob2Salary() {
   const deliveriesJob2_500 = document.getElementById('deliveriesJob2_500').value;
   const workingDaysJob2 = document.getElementById('workingDaysJob2').value;
 
-  let dailySalary = deliveriesJob2_50 * 5000 + deliveriesJob2_100 * 8000 + deliveriesJob2_200 * 15000 + deliveriesJob2_300 * 20000 + deliveriesJob2_500 * 30000;
-  let weeklySalary = dailySalary * workingDaysJob2;
-  let monthlySalary = weeklySalary * 4;
-  let yearlySalary = monthlySalary * 12;
+  // Вычисление зарплаты на основе значений
+  const dailySalary = (deliveriesJob2_50 * 5000) + (deliveriesJob2_100 * 8000) + (deliveriesJob2_200 * 15000) + 
+    (deliveriesJob2_300 * 20000) + (deliveriesJob2_500 * 30000);
+    
+  const weeklySalary = dailySalary * workingDaysJob2;
+  const monthlySalary = weeklySalary * 4;
+  const yearlySalary = monthlySalary * 12;
 
+  // Вывод результатов
   document.getElementById('job2Daily').textContent = dailySalary;
   document.getElementById('job2Weekly').textContent = weeklySalary;
   document.getElementById('job2Monthly').textContent = monthlySalary;
+  document.getElementById('job2Yearly').textContent = yearlySalary;
+
+  // Обновление значений ползунков
   document.getElementById('deliveriesJob2_50Value').textContent = deliveriesJob2_50;
   document.getElementById('deliveriesJob2_100Value').textContent = deliveriesJob2_100;
   document.getElementById('deliveriesJob2_200Value').textContent = deliveriesJob2_200;
@@ -113,5 +126,22 @@ function calculateJob2Salary() {
 }
 
 function calculateJob3Salary() {
-  // Аналогично расчету для Химика
+  const itemsDelivered = document.getElementById('itemsDelivered').value;
+  const workingDaysJob3 = document.getElementById('workingDaysJob3').value;
+
+  // Заработная плата на основе объема продукции
+  const dailySalary = itemsDelivered * 10;
+  const weeklySalary = dailySalary * workingDaysJob3;
+  const monthlySalary = weeklySalary * 4;
+  const yearlySalary = monthlySalary * 12;
+
+  // Вывод результатов
+  document.getElementById('job3Daily').textContent = dailySalary;
+  document.getElementById('job3Weekly').textContent = weeklySalary;
+  document.getElementById('job3Monthly').textContent = monthlySalary;
+  document.getElementById('job3Yearly').textContent = yearlySalary;
+
+  // Обновление значений ползунка
+  document.getElementById('itemsDeliveredValue').textContent = itemsDelivered;
+  document.getElementById('workingDaysJob3Value').textContent = workingDaysJob3;
 }
