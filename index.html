@@ -24,16 +24,23 @@
     <!-- Слайдер для курьера -->
     <div id="courierSection" class="vacancy-section">
       <label for="courierDays">Количество рабочих дней в неделю для курьера:</label>
-      <input type="range" id="courierDays" min="1" max="7" value="5" oninput="updateSalary('courier')">
+      <input type="range" id="courierDays" min="1" max="7" value="5">
       <div class="value-display">
         <span id="courierDaysValue">5</span> дней
+      </div>
+
+      <!-- Новый ползунок для количества кладов -->
+      <label for="courierLoads">Количество кладов для курьера:</label>
+      <input type="range" id="courierLoads" min="1" max="200" value="1">
+      <div class="value-display">
+        <span id="courierLoadsValue">1</span> клад
       </div>
     </div>
 
     <!-- Слайдер для химика -->
     <div id="chemistSection" class="vacancy-section" style="display: none;">
       <label for="chemistDays">Количество рабочих дней в неделю для химика:</label>
-      <input type="range" id="chemistDays" min="1" max="7" value="5" oninput="updateSalary('chemist')">
+      <input type="range" id="chemistDays" min="1" max="7" value="5">
       <div class="value-display">
         <span id="chemistDaysValue">5</span> дней
       </div>
@@ -42,7 +49,7 @@
     <!-- Слайдер для склада -->
     <div id="warehouseSection" class="vacancy-section" style="display: none;">
       <label for="warehouseDays">Количество рабочих дней в неделю для склада:</label>
-      <input type="range" id="warehouseDays" min="1" max="7" value="5" oninput="updateSalary('warehouse')">
+      <input type="range" id="warehouseDays" min="1" max="7" value="5">
       <div class="value-display">
         <span id="warehouseDaysValue">5</span> дней
       </div>
