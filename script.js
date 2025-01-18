@@ -1,3 +1,25 @@
+function updateJobForm() {
+  const jobSelect = document.getElementById('jobSelect').value;
+  const job1Form = document.getElementById('job1Form');
+  const job2Form = document.getElementById('job2Form');
+  const job3Form = document.getElementById('job3Form');
+
+  job1Form.style.display = 'none';
+  job2Form.style.display = 'none';
+  job3Form.style.display = 'none';
+
+  if (jobSelect === '1') {
+    job1Form.style.display = 'block';
+    calculateJob1Salary();
+  } else if (jobSelect === '2') {
+    job2Form.style.display = 'block';
+    updateJob2Form();
+  } else if (jobSelect === '3') {
+    job3Form.style.display = 'block';
+    calculateJob3Salary();
+  }
+}
+
 function updateJob2Form() {
   const job2Option = document.getElementById('job2Option').value;
   const job2Slider = document.getElementById('job2Slider');
@@ -7,44 +29,52 @@ function updateJob2Form() {
       <label> 50г : </label>
       <input type="range" id="deliveriesJob2_50" min="1" max="40" value="1" onchange="calculateJob2Salary()">
       <p>50г: <span id="deliveriesJob2_50Value">1</span> | Заработано: <span id="earningsJob2_50">5000</span> руб</p>
-      
+
       <label> 100г : </label>
       <input type="range" id="deliveriesJob2_100" min="1" max="40" value="1" onchange="calculateJob2Salary()">
       <p>100г: <span id="deliveriesJob2_100Value">1</span> | Заработано: <span id="earningsJob2_100">8000</span> руб</p>
-      
+
       <label> 200г : </label>
       <input type="range" id="deliveriesJob2_200" min="1" max="40" value="1" onchange="calculateJob2Salary()">
       <p>200г: <span id="deliveriesJob2_200Value">1</span> | Заработано: <span id="earningsJob2_200">15000</span> руб</p>
-      
+
       <label> 300г : </label>
       <input type="range" id="deliveriesJob2_300" min="1" max="40" value="1" onchange="calculateJob2Salary()">
       <p>300г: <span id="deliveriesJob2_300Value">1</span> | Заработано: <span id="earningsJob2_300">20000</span> руб</p>
-      
+
       <label> 500г : </label>
       <input type="range" id="deliveriesJob2_500" min="1" max="40" value="1" onchange="calculateJob2Salary()">
       <p>500г: <span id="deliveriesJob2_500Value">1</span> | Заработано: <span id="earningsJob2_500">30000</span> руб</p>
+
+      <label> Рабочие дни в неделю : </label>
+      <input type="range" id="workingDaysJob2" min="1" max="7" value="7" onchange="calculateJob2Salary()">
+      <p>Рабочие дни: <span id="workingDaysJob2Value">7</span></p>
     `;
   } else {  // ЛЕС
     job2Slider.innerHTML = `
       <label> 50г : </label>
       <input type="range" id="deliveriesJob2_50" min="1" max="40" value="1" onchange="calculateJob2Salary()">
       <p>50г: <span id="deliveriesJob2_50Value">1</span> | Заработано: <span id="earningsJob2_50">3000</span> руб</p>
-      
+
       <label> 100г : </label>
       <input type="range" id="deliveriesJob2_100" min="1" max="40" value="1" onchange="calculateJob2Salary()">
       <p>100г: <span id="deliveriesJob2_100Value">1</span> | Заработано: <span id="earningsJob2_100">6000</span> руб</p>
-      
+
       <label> 200г : </label>
       <input type="range" id="deliveriesJob2_200" min="1" max="40" value="1" onchange="calculateJob2Salary()">
       <p>200г: <span id="deliveriesJob2_200Value">1</span> | Заработано: <span id="earningsJob2_200">9000</span> руб</p>
-      
+
       <label> 300г : </label>
       <input type="range" id="deliveriesJob2_300" min="1" max="40" value="1" onchange="calculateJob2Salary()">
       <p>300г: <span id="deliveriesJob2_300Value">1</span> | Заработано: <span id="earningsJob2_300">13000</span> руб</p>
-      
+
       <label> 500г : </label>
       <input type="range" id="deliveriesJob2_500" min="1" max="40" value="1" onchange="calculateJob2Salary()">
       <p>500г: <span id="deliveriesJob2_500Value">1</span> | Заработано: <span id="earningsJob2_500">20000</span> руб</p>
+
+      <label> Рабочие дни в неделю : </label>
+      <input type="range" id="workingDaysJob2" min="1" max="7" value="7" onchange="calculateJob2Salary()">
+      <p>Рабочие дни: <span id="workingDaysJob2Value">7</span></p>
     `;
   }
 }
@@ -84,11 +114,12 @@ function calculateJob2Salary() {
   document.getElementById('deliveriesJob2_300Value').textContent = deliveriesJob2_300;
   document.getElementById('deliveriesJob2_500Value').textContent = deliveriesJob2_500;
 
+  // Обновляем рабочие дни
+  document.getElementById('workingDaysJob2Value').textContent = workingDaysJob2;
+
   // Обновляем общий заработок по дням, неделям, месяцам и годам
   document.getElementById('job2Daily').textContent = dailySalary;
   document.getElementById('job2Weekly').textContent = weeklySalary;
   document.getElementById('job2Monthly').textContent = monthlySalary;
   document.getElementById('job2Yearly').textContent = yearlySalary;
-  
-  document.getElementById('workingDaysJob2Value').textContent = workingDaysJob2;
 }
