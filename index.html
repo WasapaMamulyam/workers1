@@ -11,7 +11,18 @@
   <div class="container">
     <h1>Считаем лавэшку</h1>
 
-    <div class="vacancy">
+    <!-- Выбор вакансии -->
+    <div class="vacancy-select">
+      <label for="vacancy">Выберите вакансию:</label>
+      <select id="vacancy" onchange="updateVacancy()">
+        <option value="courier">Курьер</option>
+        <option value="chemist">Химик</option>
+        <option value="warehouse">Склад</option>
+      </select>
+    </div>
+
+    <!-- Слайдер для курьера -->
+    <div id="courierSection" class="vacancy-section">
       <label for="courierDays">Количество рабочих дней в неделю для курьера:</label>
       <input type="range" id="courierDays" min="1" max="7" value="5">
       <div class="value-display">
@@ -19,7 +30,8 @@
       </div>
     </div>
 
-    <div class="vacancy">
+    <!-- Слайдер для химика -->
+    <div id="chemistSection" class="vacancy-section" style="display: none;">
       <label for="chemistDays">Количество рабочих дней в неделю для химика:</label>
       <input type="range" id="chemistDays" min="1" max="7" value="5">
       <div class="value-display">
@@ -27,7 +39,8 @@
       </div>
     </div>
 
-    <div class="vacancy">
+    <!-- Слайдер для склада -->
+    <div id="warehouseSection" class="vacancy-section" style="display: none;">
       <label for="warehouseDays">Количество рабочих дней в неделю для склада:</label>
       <input type="range" id="warehouseDays" min="1" max="7" value="5">
       <div class="value-display">
@@ -35,6 +48,7 @@
       </div>
     </div>
 
+    <!-- Результаты зарплаты -->
     <div id="salaryOutput">
       <h2>Общая зарплата</h2>
       <table>
