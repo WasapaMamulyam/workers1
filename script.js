@@ -3,9 +3,11 @@ function updateJobForm() {
   const job1Form = document.getElementById('job1Form');
   const job2Form = document.getElementById('job2Form');
   const job3Form = document.getElementById('job3Form');
+
   job1Form.style.display = 'none';
   job2Form.style.display = 'none';
   job3Form.style.display = 'none';
+
   if (jobSelect === '1') {
     job1Form.style.display = 'block';
     calculateJob1Salary();
@@ -20,4 +22,26 @@ function updateJobForm() {
 
 function calculateJob1Salary() {
   const deliveriesPerDay = document.getElementById('deliveriesPerDay').value;
-  const workingDaysPerWeek =
+  const workingDaysPerWeek = document.getElementById('workingDaysPerWeek').value;
+
+  const dailySalary = deliveriesPerDay * 2400;
+  const weeklySalary = dailySalary * workingDaysPerWeek;
+  const monthlySalary = weeklySalary * 4;
+  const yearlySalary = monthlySalary * 12;
+
+  document.getElementById('job1Daily').textContent = dailySalary;
+  document.getElementById('job1Weekly').textContent = weeklySalary;
+  document.getElementById('job1Monthly').textContent = monthlySalary;
+  document.getElementById('job1Yearly').textContent = yearlySalary;
+  document.getElementById('deliveriesPerDayValue').textContent = deliveriesPerDay;
+  document.getElementById('workingDaysPerWeekValue').textContent = workingDaysPerWeek;
+}
+
+function updateJob2Form() {
+  const job2Option = document.getElementById('job2Option').value;
+  const job2Slider = document.getElementById('job2Slider');
+  
+  if (job2Option === '1') {  // ГОРОД
+    job2Slider.innerHTML = `
+      <label>Количество доставок (50 – 5000):</label>
+      <input type="range" id="deliveriesJob2_50" min="1" max="40" value
