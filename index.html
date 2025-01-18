@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -8,86 +7,54 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <div class="container">
     <h1>Считаем лавэшку</h1>
-    <label for="jobSelect">Выберите вакансию:</label>
-    <select id="jobSelect" onchange="updateJobForm()">
-      <option value="1">Курьер</option>
-      <option value="2">Склад</option>
-      <option value="3">Химик</option>
-    </select>
 
-    <!-- Курьер -->
-    <div id="job1Form" class="jobForm">
-      <h2>Курьер</h2>
-      <label>Количество доставок в день:</label>
-      <input type="range" id="deliveriesPerDay" min="1" max="200" value="1" onchange="calculateJob1Salary()">
-      <p>Значение: <span id="deliveriesPerDayValue">1</span></p>
-      
-      <label>Количество рабочих дней в неделю:</label>
-      <input type="range" id="workingDaysPerWeek" min="1" max="7" value="1" onchange="calculateJob1Salary()">
-      <p>Значение: <span id="workingDaysPerWeekValue">1</span></p>
-
-      <p>ЗП в день: <span id="job1Daily">0</span> руб</p>
-      <p>ЗП в неделю: <span id="job1Weekly">0</span> руб</p>
-      <p>ЗП в месяц: <span id="job1Monthly">0</span> руб</p>
-      <p>ЗП в год: <span id="job1Yearly">0</span> руб</p>
-    </div>
-
-    <!-- Склад -->
-    <div id="job2Form" class="jobForm">
-      <h2>Склад</h2>
-      <label>Выберите вариант:</label>
-      <select id="job2Option" onchange="updateJob2Form()">
-        <option value="1">ГОРОД</option>
-        <option value="2">ЛЕС</option>
-      </select>
-
-      <div id="job2Slider" class="job2Slider">
-        <label>50:</label>
-        <input type="range" id="deliveriesJob2_50" min="1" max="40" value="1" onchange="calculateJob2Salary()">
-        <p>кол-во кладов: <span id="deliveriesJob2_50Value">1</span></p>
-        
-        <label>Количество доставок (100 – 5000):</label>
-        <input type="range" id="deliveriesJob2_100" min="1" max="40" value="1" onchange="calculateJob2Salary()">
-        <p>100: <span id="deliveriesJob2_100Value">1</span></p>
-
-        <label>Количество доставок (200 – 5000):</label>
-        <input type="range" id="deliveriesJob2_200" min="1" max="40" value="1" onchange="calculateJob2Salary()">
-        <p>200: <span id="deliveriesJob2_200Value">1</span></p>
-
-        <label>Количество доставок (300 – 5000):</label>
-        <input type="range" id="deliveriesJob2_300" min="1" max="40" value="1" onchange="calculateJob2Salary()">
-        <p>300: <span id="deliveriesJob2_300Value">1</span></p>
-
-        <label>Количество доставок (500 – 5000):</label>
-        <input type="range" id="deliveriesJob2_500" min="1" max="40" value="1" onchange="calculateJob2Salary()">
-        <p>500: <span id="deliveriesJob2_500Value">1</span></p>
-
-        <label>Количество рабочих дней в неделю:</label>
-        <input type="range" id="workingDaysJob2" min="1" max="7" value="1" onchange="calculateJob2Salary()">
-        <p>Значение: <span id="workingDaysJob2Value">1</span></p>
-
-        <p>ЗП в день: <span id="job2Daily">0</span> руб</p>
-        <p>ЗП в неделю: <span id="job2Weekly">0</span> руб</p>
-        <p>ЗП в месяц: <span id="job2Monthly">0</span> руб</p>
+    <div class="vacancy">
+      <label for="courierDays">Количество рабочих дней в неделю для курьера:</label>
+      <input type="range" id="courierDays" min="1" max="7" value="5">
+      <div class="value-display">
+        <span id="courierDaysValue">5</span> дней
       </div>
     </div>
 
-    <!-- Химик -->
-    <div id="job3Form" class="jobForm">
-      <h2>Химик</h2>
-      <label>Количество произведенной продукции (Гр):</label>
-      <input type="range" id="itemsDelivered" min="100" max="2000" step="100" value="100" onchange="calculateJob3Salary()">
-      <p>Значение: <span id="itemsDeliveredValue">100</span> Гр</p>
+    <div class="vacancy">
+      <label for="chemistDays">Количество рабочих дней в неделю для химика:</label>
+      <input type="range" id="chemistDays" min="1" max="7" value="5">
+      <div class="value-display">
+        <span id="chemistDaysValue">5</span> дней
+      </div>
+    </div>
 
-      <label>Количество рабочих дней в неделю:</label>
-      <input type="range" id="workingDaysJob3" min="1" max="7" value="1" onchange="calculateJob3Salary()">
-      <p>Значение: <span id="workingDaysJob3Value">1</span></p>
+    <div class="vacancy">
+      <label for="warehouseDays">Количество рабочих дней в неделю для склада:</label>
+      <input type="range" id="warehouseDays" min="1" max="7" value="5">
+      <div class="value-display">
+        <span id="warehouseDaysValue">5</span> дней
+      </div>
+    </div>
 
-      <p>ЗП в день: <span id="job3Daily">0</span> руб</p>
-      <p>ЗП в неделю: <span id="job3Weekly">0</span> руб</p>
-      <p>ЗП в месяц: <span id="job3Monthly">0</span> руб</p>
+    <div id="salaryOutput">
+      <h2>Общая зарплата</h2>
+      <table>
+        <tr>
+          <td>Зарплата за день:</td>
+          <td><span id="daySalary">0</span> руб.</td>
+        </tr>
+        <tr>
+          <td>Зарплата за неделю:</td>
+          <td><span id="weekSalary">0</span> руб.</td>
+        </tr>
+        <tr>
+          <td>Зарплата за месяц:</td>
+          <td><span id="monthSalary">0</span> руб.</td>
+        </tr>
+        <tr>
+          <td>Зарплата за год:</td>
+          <td><span id="yearSalary">0</span> руб.</td>
+        </tr>
+      </table>
     </div>
   </div>
 
