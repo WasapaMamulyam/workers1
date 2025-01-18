@@ -3,64 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Зарплата</title>
+    <title>Зарплата Курьера</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Расчет зарплаты по вакансиям</h1>
+        <h1>Расчет зарплаты для Курьера</h1>
 
-        <!-- Выпадающий список для выбора вакансии -->
-        <h2>Выберите вакансию</h2>
-        <select id="jobSelect" onchange="updateJobForm()">
-            <option value="0">Выберите вакансию</option>
-            <option value="1">Курьер</option>
-            <option value="2">Склад</option>
-            <option value="3">Химик</option>
-        </select>
-
-        <!-- Формы для каждой вакансии (изначально скрыты) -->
+        <!-- Вакансия Курьер -->
         <div id="job1Form" class="jobForm">
             <h3>Курьер</h3>
-            <label>50г:</label>
-            <input type="range" id="deliveriesJob1_50" min="1" max="40" value="1" onchange="calculateSalary(1)">
-            <span id="deliveriesJob1_50Value">1</span> <span id="job1Daily">5000</span>
+            
+            <!-- Ползунок 1: Количество доставок -->
+            <label>Количество доставок:</label>
+            <input type="range" id="deliveriesJob1" min="1" max="200" value="1" onchange="calculateSalary(1)">
+            <span id="deliveriesJob1Value">1</span> 
+            <span id="job1Daily">2400</span>
 
-            <label>100г:</label>
-            <input type="range" id="deliveriesJob1_100" min="1" max="40" value="1" onchange="calculateSalary(1)">
-            <span id="deliveriesJob1_100Value">1</span> <span id="job1Daily">8000</span>
-
-            <label>200г:</label>
-            <input type="range" id="deliveriesJob1_200" min="1" max="40" value="1" onchange="calculateSalary(1)">
-            <span id="deliveriesJob1_200Value">1</span> <span id="job1Daily">15000</span>
-
-            <label>300г:</label>
-            <input type="range" id="deliveriesJob1_300" min="1" max="40" value="1" onchange="calculateSalary(1)">
-            <span id="deliveriesJob1_300Value">1</span> <span id="job1Daily">20000</span>
-
-            <label>500г:</label>
-            <input type="range" id="deliveriesJob1_500" min="1" max="40" value="1" onchange="calculateSalary(1)">
-            <span id="deliveriesJob1_500Value">1</span> <span id="job1Daily">30000</span>
-
-            <label>Рабочие дни в неделю:</label>
+            <!-- Ползунок 2: Количество рабочих дней -->
+            <label>Количество рабочих дней в неделю:</label>
             <input type="range" id="workingDaysJob1" min="1" max="7" value="5" onchange="calculateSalary(1)">
             <span id="workingDaysJob1Value">5</span>
-
+            
             <h3>Зарплата</h3>
-            <p>День: <span id="job1DailyTotal">10000</span></p>
-            <p>Неделя: <span id="job1WeeklyTotal">50000</span></p>
-            <p>Месяц: <span id="job1MonthlyTotal">200000</span></p>
-            <p>Год: <span id="job1YearlyTotal">2400000</span></p>
-        </div>
-
-        <div id="job2Form" class="jobForm">
-            <h3>Склад</h3>
-            <!-- Формы с ползунками для вакансии склада -->
-        </div>
-
-        <div id="job3Form" class="jobForm">
-            <h3>Химик</h3>
-            <!-- Формы с ползунками для вакансии химика -->
+            <p>День: <span id="job1DailyTotal">2400</span></p>
+            <p>Неделя: <span id="job1WeeklyTotal">12000</span></p>
+            <p>Месяц: <span id="job1MonthlyTotal">48000</span></p>
+            <p>Год: <span id="job1YearlyTotal">576000</span></p>
         </div>
 
     </div>
@@ -68,3 +37,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
