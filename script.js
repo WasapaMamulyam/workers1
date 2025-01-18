@@ -44,4 +44,28 @@ function calculateSalary() {
   const totalMonthSalary = totalWeekSalary * 4;
   const totalYearSalary = totalMonthSalary * 12;
 
-  // Обновление
+  // Обновление значений на странице
+  document.getElementById("daySalary").textContent = totalDaySalary;
+  document.getElementById("weekSalary").textContent = totalWeekSalary;
+  document.getElementById("monthSalary").textContent = totalMonthSalary;
+  document.getElementById("yearSalary").textContent = totalYearSalary;
+
+  // Обновление значений под ползунками
+  if (courierDays > 0) {
+    document.getElementById("courierDaysValue").textContent = courierDays;
+  }
+  if (chemistDays > 0) {
+    document.getElementById("chemistDaysValue").textContent = chemistDays;
+  }
+  if (warehouseDays > 0) {
+    document.getElementById("warehouseDaysValue").textContent = warehouseDays;
+  }
+}
+
+// Инициализация страницы
+updateVacancy();
+
+// Слушатели событий для ползунков
+document.getElementById("courierDays")?.addEventListener("input", calculateSalary);
+document.getElementById("chemistDays")?.addEventListener("input", calculateSalary);
+document.getElementById("warehouseDays")?.addEventListener("input", calculateSalary);
