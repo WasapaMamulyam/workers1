@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Считаем лавэшку</title>
-  <link rel="stylesheet" href="style.css"> <!-- Убедитесь, что путь правильный -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <div class="container">
     <h1>Считаем лавэшку</h1>
 
+    <!-- Выбор вакансии -->
     <div class="vacancy-select">
       <label for="vacancy">Выберите вакансию:</label>
       <select id="vacancy" onchange="updateVacancy()">
@@ -20,30 +21,34 @@
       </select>
     </div>
 
+    <!-- Слайдер для курьера -->
     <div id="courierSection" class="vacancy-section">
       <label for="courierDays">Количество рабочих дней в неделю для курьера:</label>
-      <input type="range" id="courierDays" min="1" max="7" value="5" oninput="updateValue('courierDays')">
+      <input type="range" id="courierDays" min="1" max="7" value="5" oninput="updateSalary('courier')">
       <div class="value-display">
         <span id="courierDaysValue">5</span> дней
       </div>
     </div>
 
+    <!-- Слайдер для химика -->
     <div id="chemistSection" class="vacancy-section" style="display: none;">
       <label for="chemistDays">Количество рабочих дней в неделю для химика:</label>
-      <input type="range" id="chemistDays" min="1" max="7" value="5" oninput="updateValue('chemistDays')">
+      <input type="range" id="chemistDays" min="1" max="7" value="5" oninput="updateSalary('chemist')">
       <div class="value-display">
         <span id="chemistDaysValue">5</span> дней
       </div>
     </div>
 
+    <!-- Слайдер для склада -->
     <div id="warehouseSection" class="vacancy-section" style="display: none;">
       <label for="warehouseDays">Количество рабочих дней в неделю для склада:</label>
-      <input type="range" id="warehouseDays" min="1" max="7" value="5" oninput="updateValue('warehouseDays')">
+      <input type="range" id="warehouseDays" min="1" max="7" value="5" oninput="updateSalary('warehouse')">
       <div class="value-display">
         <span id="warehouseDaysValue">5</span> дней
       </div>
     </div>
 
+    <!-- Результаты зарплаты -->
     <div id="salaryOutput">
       <h2>Общая зарплата</h2>
       <table>
