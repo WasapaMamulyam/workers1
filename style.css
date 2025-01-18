@@ -1,3 +1,4 @@
+/* Общие стили для страницы */
 body {
   font-family: Arial, sans-serif;
   display: flex;
@@ -11,7 +12,7 @@ body {
 
 .container {
   width: 80%;
-  max-width: 800px;
+  max-width: 1000px;
   margin-top: 20px;
   background-color: white;
   padding: 20px;
@@ -21,13 +22,14 @@ body {
 
 h1 {
   text-align: center;
-  font-size: 2em;
+  font-size: 2.5em;
   color: #333;
 }
 
 h2 {
-  font-size: 1.5em;
+  font-size: 2em;
   color: #333;
+  margin-bottom: 10px;
 }
 
 label {
@@ -35,6 +37,11 @@ label {
   margin-top: 10px;
   font-size: 1.2em;
   color: #555;
+}
+
+select {
+  font-size: 1.2em;
+  margin-top: 10px;
 }
 
 input[type="range"] {
@@ -47,8 +54,8 @@ span {
   color: #555;
 }
 
-select {
-  font-size: 1.2em;
+p {
+  font-size: 1.1em;
   margin-top: 10px;
 }
 
@@ -57,17 +64,46 @@ select {
   display: none;
 }
 
-p {
-  font-size: 1.1em;
-  margin-top: 10px;
-}
-
 p span {
   color: #007bff;
 }
 
+.jobForm.active {
+  display: block;
+}
+
+#job2Slider {
+  margin-top: 20px;
+}
+
+#job2Slider label {
+  display: block;
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+#job2Slider input[type="range"] {
+  width: 90%;
+  margin-top: 10px;
+}
+
+/* Адаптивность для мобильных устройств */
 @media (max-width: 600px) {
   .container {
     width: 95%;
   }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.8em;
+  }
+
+  label,
+  p {
+    font-size: 1em;
+  }
 }
+
