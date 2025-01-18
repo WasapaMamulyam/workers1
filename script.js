@@ -1,14 +1,12 @@
-// Функция для обновления отображения вакансий
+// Обновление отображения выбранной вакансии и включение соответствующего слайдера
 function updateVacancy() {
-  // Скрываем все секции
-  document.getElementById('courierSection').style.display = 'none';
-  document.getElementById('chemistSection').style.display = 'none';
-  document.getElementById('warehouseSection').style.display = 'none';
-
-  // Получаем выбранную вакансию
   const vacancy = document.getElementById('vacancy').value;
+  const sections = document.querySelectorAll('.vacancy-section');
 
-  // Показываем нужную секцию
+  sections.forEach(section => {
+    section.style.display = 'none';
+  });
+
   if (vacancy === 'courier') {
     document.getElementById('courierSection').style.display = 'block';
   } else if (vacancy === 'chemist') {
@@ -17,45 +15,35 @@ function updateVacancy() {
     document.getElementById('warehouseSection').style.display = 'block';
   }
 
-  // Выполняем расчет зарплаты после изменения вакансии
-  calculateSalary();
+  updateSalary(vacancy);  // Обновляем зарплату при изменении вакансии
 }
 
-// Функция для обновления значения под ползунком
-function updateValue(id) {
-  const slider = document.getElementById(id);
-  const valueDisplay = document.getElementById(id + "Value");
-  valueDisplay.textContent = slider.value;
+// Функция для обновления зарплаты
+function updateSalary(vacancy) {
+  const dayRate = 2400; // Ставка за день для курьера
+  const multiplier = {
+    courier: 2400,
+    chemist: 3000, // Примерная ставка для химика
+    warehouse: 2000, // Примерная ставка для склада
+  };
 
-  // Выполняем перерасчет зарплаты
-  calculateSalary();
+  const days = document.getElementById(vacancy + 'Days').value;
+  const daySalary = multiplier[vacancy] * days;
+  const weekSalary = daySalary * 5;  // Предположим, что рабочая неделя - 5 дней
+  const monthSalary = weekSalary * 4;  // Месяц - 4 недели
+  const yearSalary = monthSalary * 12;  // Год - 12 месяцев
+
+  // Обновление значений под ползунком
+  document.getElementById(vacancy + 'DaysValue').textContent = days;
+
+  // Обновление значений зарплаты
+  document.getElementById('daySalary').textContent = daySalary;
+  document.getElementById('weekSalary').textContent = weekSalary;
+  document.getElementById('monthSalary').textContent = monthSalary;
+  document.getElementById('yearSalary').textContent = yearSalary;
 }
 
-// Функция для расчета зарплаты
-function calculateSalary() {
-  // Получаем количество рабочих дней для каждого ползунка
-  const courierDays = parseInt(document.getElementById("courierDays").value || 0);
-  const chemistDays = parseInt(document.getElementById("chemistDays").value || 0);
-  const warehouseDays = parseInt(document.getElementById("warehouseDays").value || 0);
-
-  // Курьер (2400 за каждый день работы)
-  const courierDaily = 2400;
-  const courierDaySalary = courierDays * courierDaily;
-
-  // Химик (100000 за 500г производства)
-  const chemistDaily = 100000;
-  const chemistDaySalary = chemistDays * chemistDaily;
-
-  // Склад (оплата зависит от ползунка)
-  const warehouseDaily = 5000;
-  const warehouseDaySalary = warehouseDays * warehouseDaily;
-
-  // Общий расчет
-  const totalDaySalary = courierDaySalary + chemistDaySalary + warehouseDaySalary;
-  const totalWeekSalary = totalDaySalary * 7;
-  const totalMonthSalary = totalWeekSalary * 4;
-  const totalYearSalary = totalMonthSalary * 12;
-
-  // Обновление значений на странице
-  document.getElementById("daySalary").textContent = totalDaySalary;
-  document.getElementById("weekSalary").
+// Инициализация
+document.addEventListener('DOMContentLoaded', () => {
+  updateVacancy();  // Инициализация выбранной вакансии
+});
