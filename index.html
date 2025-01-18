@@ -1,39 +1,62 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Зарплата Курьера, Химика и Склада</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Salary Calculator</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <div class="container">
-        <h1>Выберите вакансию и укажите рабочие дни в неделю</h1>
+        <h1>Salary Calculator</h1>
+        
+        <!-- Vacancy Selector -->
+        <label for="vacancy-select">Select Vacancy:</label>
+        <select id="vacancy-select">
+            <option value="courier">Courier</option>
+            <option value="chemist">Chemist</option>
+            <option value="warehouse">Warehouse</option>
+        </select>
 
-        <!-- Вакансия Курьер -->
-        <div id="job1Form" class="jobForm">
-            <h3>Курьер</h3>
-            <label>Количество рабочих дней в неделю:</label>
-            <input type="range" id="workingDaysJob1" min="1" max="7" value="5" onchange="updateWorkingDays(1)">
-            <span id="workingDaysJob1Value">5</span>
+        <!-- Slider and Salary Info for Courier -->
+        <div id="courier" class="vacancy">
+            <h2>Courier</h2>
+            <label for="deliveries">Deliveries per day (1-200):</label>
+            <input type="range" id="deliveries" min="1" max="200" value="5">
+            <span id="delivery-value">5</span>
+            <p>Salary for 1 delivery: 2400</p>
+            <p>Total for the day: <span id="total-day">12000</span></p>
+            <p>Total for the week: <span id="total-week">84000</span></p>
+            <p>Total for the month: <span id="total-month">336000</span></p>
+            <p>Total for the year: <span id="total-year">4032000</span></p>
         </div>
 
-        <!-- Вакансия Химик -->
-        <div id="job2Form" class="jobForm">
-            <h3>Химик</h3>
-            <label>Количество рабочих дней в неделю:</label>
-            <input type="range" id="workingDaysJob2" min="1" max="7" value="5" onchange="updateWorkingDays(2)">
-            <span id="workingDaysJob2Value">5</span>
+        <!-- Slider and Salary Info for Chemist -->
+        <div id="chemist" class="vacancy">
+            <h2>Chemist</h2>
+            <label for="quantity">Product Quantity (1-7 days/week):</label>
+            <input type="range" id="days" min="1" max="7" value="5">
+            <span id="days-value">5</span>
+            <p>Salary per 500g: 100000</p>
+            <p>Total for the day: <span id="chemist-day">500000</span></p>
+            <p>Total for the week: <span id="chemist-week">3500000</span></p>
+            <p>Total for the month: <span id="chemist-month">14000000</span></p>
+            <p>Total for the year: <span id="chemist-year">168000000</span></p>
         </div>
 
-        <!-- Вакансия Склад -->
-        <div id="job3Form" class="jobForm">
-            <h3>Склад</h3>
-            <label>Количество рабочих дней в неделю:</label>
-            <input type="range" id="workingDaysJob3" min="1" max="7" value="5" onchange="updateWorkingDays(3)">
-            <span id="workingDaysJob3Value">5</span>
+        <!-- Slider and Salary Info for Warehouse -->
+        <div id="warehouse" class="vacancy">
+            <h2>Warehouse</h2>
+            <label for="warehouse-days">Days worked per week (1-7):</label>
+            <input type="range" id="warehouse-days" min="1" max="7" value="5">
+            <span id="warehouse-days-value">5</span>
+            <p>Salary per 50g delivery: 5000</p>
+            <p>Total for the day: <span id="warehouse-day">25000</span></p>
+            <p>Total for the week: <span id="warehouse-week">175000</span></p>
+            <p>Total for the month: <span id="warehouse-month">700000</span></p>
+            <p>Total for the year: <span id="warehouse-year">8400000</span></p>
         </div>
-
     </div>
 
     <script src="script.js"></script>
