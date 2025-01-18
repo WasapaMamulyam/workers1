@@ -6,12 +6,50 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
+  background-color: #f4f4f4;
 }
 
 .container {
   width: 80%;
-  max-width: 600px;
+  max-width: 800px;
   margin-top: 20px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  font-size: 2em;
+  color: #333;
+}
+
+h2 {
+  font-size: 1.5em;
+  color: #333;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  font-size: 1.2em;
+  color: #555;
+}
+
+input[type="range"] {
+  width: 100%;
+  margin-top: 10px;
+}
+
+span {
+  font-weight: bold;
+  color: #555;
+}
+
+select {
+  font-size: 1.2em;
+  margin-top: 10px;
 }
 
 .jobForm {
@@ -19,28 +57,17 @@ body {
   display: none;
 }
 
-h1,
-h2 {
-  text-align: center;
-}
-
-label {
-  display: block;
+p {
+  font-size: 1.1em;
   margin-top: 10px;
 }
 
-input[type="range"] {
-  width: 100%;
+p span {
+  color: #007bff;
 }
 
-span {
-  font-weight: bold;
-}
-
-p {
-  font-size: 18px;
-}
-
-select {
-  font-size: 16px;
+@media (max-width: 600px) {
+  .container {
+    width: 95%;
+  }
 }
