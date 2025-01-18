@@ -43,7 +43,25 @@ function updateSalary(vacancy) {
   document.getElementById('yearSalary').textContent = yearSalary;
 }
 
+// Функция для обновления значения под ползунком
+function updateSliderValue(sliderId, valueId) {
+  const slider = document.getElementById(sliderId);
+  const valueDisplay = document.getElementById(valueId);
+  
+  // Обновляем значение под ползунком
+  valueDisplay.textContent = slider.value;
+  
+  // В случае с изменением дней, мы также обновляем зарплату
+  const vacancy = document.getElementById('vacancy').value;
+  updateSalary(vacancy);
+}
+
 // Инициализация
 document.addEventListener('DOMContentLoaded', () => {
   updateVacancy();  // Инициализация выбранной вакансии
+
+  // Добавляем обработчик событий для каждого ползунка
+  document.getElementById('courierDays').addEventListener('input', () => updateSliderValue('courierDays', 'courierDaysValue'));
+  document.getElementById('chemistDays').addEventListener('input', () => updateSliderValue('chemistDays', 'chemistDaysValue'));
+  document.getElementById('warehouseDays').addEventListener('input', () => updateSliderValue('warehouseDays', 'warehouseDaysValue'));
 });
