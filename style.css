@@ -51,7 +51,7 @@ select {
 .vacancy-section {
   margin-bottom: 30px;
   text-align: left;
-  display: none; /* Скрываем секции, пока не будет выбрана вакансия */
+  display: none;
 }
 
 input[type="range"] {
