@@ -44,4 +44,78 @@ function updateJob2Form() {
   if (job2Option === '1') {  // ГОРОД
     job2Slider.innerHTML = `
       <label>Количество доставок (50 – 5000):</label>
-      <input type="range" id="deliveriesJob2_50" min="1" max="40" value
+      <input type="range" id="deliveriesJob2_50" min="1" max="40" value="1" onchange="calculateJob2Salary()">
+      <p>50: <span id="deliveriesJob2_50Value">1</span></p>
+      
+      <label>Количество доставок (100 – 8000):</label>
+      <input type="range" id="deliveriesJob2_100" min="1" max="40" value="1" onchange="calculateJob2Salary()">
+      <p>100: <span id="deliveriesJob2_100Value">1</span></p>
+      
+      <label>Количество доставок (200 – 15000):</label>
+      <input type="range" id="deliveriesJob2_200" min="1" max="40" value="1" onchange="calculateJob2Salary()">
+      <p>200: <span id="deliveriesJob2_200Value">1</span></p>
+      
+      <label>Количество доставок (300 – 20000):</label>
+      <input type="range" id="deliveriesJob2_300" min="1" max="40" value="1" onchange="calculateJob2Salary()">
+      <p>300: <span id="deliveriesJob2_300Value">1</span></p>
+      
+      <label>Количество доставок (500 – 30000):</label>
+      <input type="range" id="deliveriesJob2_500" min="1" max="40" value="1" onchange="calculateJob2Salary()">
+      <p>500: <span id="deliveriesJob2_500Value">1</span></p>
+    `;
+  } else {  // ЛЕС
+    job2Slider.innerHTML = `
+      <label>Количество доставок (50 – 3000):</label>
+      <input type="range" id="deliveriesJob2_50" min="1" max="40" value="1" onchange="calculateJob2Salary()">
+      <p>50: <span id="deliveriesJob2_50Value">1</span></p>
+      
+      <label>Количество доставок (100 – 6000):</label>
+      <input type="range" id="deliveriesJob2_100" min="1" max="40" value="1" onchange="calculateJob2Salary()">
+      <p>100: <span id="deliveriesJob2_100Value">1</span></p>
+      
+      <label>Количество доставок (200 – 9000):</label>
+      <input type="range" id="deliveriesJob2_200" min="1" max="40" value="1" onchange="calculateJob2Salary()">
+      <p>200: <span id="deliveriesJob2_200Value">1</span></p>
+      
+      <label>Количество доставок (300 – 13000):</label>
+      <input type="range" id="deliveriesJob2_300" min="1" max="40" value="1" onchange="calculateJob2Salary()">
+      <p>300: <span id="deliveriesJob2_300Value">1</span></p>
+      
+      <label>Количество доставок (500 – 20000):</label>
+      <input type="range" id="deliveriesJob2_500" min="1" max="40" value="1" onchange="calculateJob2Salary()">
+      <p>500: <span id="deliveriesJob2_500Value">1</span></p>
+    `;
+  }
+}
+
+function calculateJob2Salary() {
+  const deliveriesJob2_50 = document.getElementById('deliveriesJob2_50').value;
+  const deliveriesJob2_100 = document.getElementById('deliveriesJob2_100').value;
+  const deliveriesJob2_200 = document.getElementById('deliveriesJob2_200').value;
+  const deliveriesJob2_300 = document.getElementById('deliveriesJob2_300').value;
+  const deliveriesJob2_500 = document.getElementById('deliveriesJob2_500').value;
+  const workingDaysJob2 = document.getElementById('workingDaysJob2').value;
+
+  let dailySalary = deliveriesJob2_50 * 5000 + deliveriesJob2_100 * 8000 + deliveriesJob2_200 * 15000 + deliveriesJob2_300 * 20000 + deliveriesJob2_500 * 30000;
+  let weeklySalary = dailySalary * workingDaysJob2;
+  let monthlySalary = weeklySalary * 4;
+  
+  document.getElementById('job2Daily').textContent = dailySalary;
+  document.getElementById('job2Weekly').textContent = weeklySalary;
+  document.getElementById('job2Monthly').textContent = monthlySalary;
+}
+
+function calculateJob3Salary() {
+  const itemsDelivered = document.getElementById('itemsDelivered').value;
+  const workingDaysJob3 = document.getElementById('workingDaysJob3').value;
+
+  const dailySalary = itemsDelivered * 50;
+  const weeklySalary = dailySalary * workingDaysJob3;
+  const monthlySalary = weeklySalary * 4;
+
+  document.getElementById('job3Daily').textContent = dailySalary;
+  document.getElementById('job3Weekly').textContent = weeklySalary;
+  document.getElementById('job3Monthly').textContent = monthlySalary;
+}
+
+document.addEventListener('DOMContentLoaded', updateJobForm);
