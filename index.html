@@ -3,75 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Зарплата Курьера и Склад</title>
+    <title>Зарплата Курьера, Химика и Склада</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Расчет зарплаты для Курьера и Склада</h1>
+        <h1>Выберите вакансию и укажите рабочие дни в неделю</h1>
 
         <!-- Вакансия Курьер -->
         <div id="job1Form" class="jobForm">
             <h3>Курьер</h3>
-            
-            <label>Количество доставок:</label>
-            <input type="range" id="deliveriesJob1" min="1" max="200" value="1" onchange="calculateSalary(1)">
-            <span id="deliveriesJob1Value">1</span>
-            <span id="job1Daily">2400</span>
-
             <label>Количество рабочих дней в неделю:</label>
-            <input type="range" id="workingDaysJob1" min="1" max="7" value="5" onchange="calculateSalary(1)">
+            <input type="range" id="workingDaysJob1" min="1" max="7" value="5" onchange="updateWorkingDays(1)">
             <span id="workingDaysJob1Value">5</span>
-            
-            <h3>Зарплата</h3>
-            <p>День: <span id="job1DailyTotal">2400</span></p>
-            <p>Неделя: <span id="job1WeeklyTotal">12000</span></p>
-            <p>Месяц: <span id="job1MonthlyTotal">48000</span></p>
-            <p>Год: <span id="job1YearlyTotal">576000</span></p>
+        </div>
+
+        <!-- Вакансия Химик -->
+        <div id="job2Form" class="jobForm">
+            <h3>Химик</h3>
+            <label>Количество рабочих дней в неделю:</label>
+            <input type="range" id="workingDaysJob2" min="1" max="7" value="5" onchange="updateWorkingDays(2)">
+            <span id="workingDaysJob2Value">5</span>
         </div>
 
         <!-- Вакансия Склад -->
-        <div id="job2Form" class="jobForm">
+        <div id="job3Form" class="jobForm">
             <h3>Склад</h3>
-
-            <label>Выберите вариант работы:</label>
-            <select id="job2Option" onchange="updateJob2Form()">
-                <option value="1">Город</option>
-                <option value="2">Лес</option>
-            </select>
-
-            <div id="job2Slider">
-                <label> 50г :</label>
-                <input type="range" id="deliveriesJob2_50" min="1" max="40" value="1" onchange="calculateJob2Salary()">
-                <p>50: <span id="deliveriesJob2_50Value">1</span></p>
-                
-                <label> 100г :</label>
-                <input type="range" id="deliveriesJob2_100" min="1" max="40" value="1" onchange="calculateJob2Salary()">
-                <p>100: <span id="deliveriesJob2_100Value">1</span></p>
-                
-                <label> 200г :</label>
-                <input type="range" id="deliveriesJob2_200" min="1" max="40" value="1" onchange="calculateJob2Salary()">
-                <p>200: <span id="deliveriesJob2_200Value">1</span></p>
-                
-                <label> 300г :</label>
-                <input type="range" id="deliveriesJob2_300" min="1" max="40" value="1" onchange="calculateJob2Salary()">
-                <p>300: <span id="deliveriesJob2_300Value">1</span></p>
-                
-                <label> 500г :</label>
-                <input type="range" id="deliveriesJob2_500" min="1" max="40" value="1" onchange="calculateJob2Salary()">
-                <p>500: <span id="deliveriesJob2_500Value">1</span></p>
-
-                <label>Количество рабочих дней в неделю:</label>
-                <input type="range" id="workingDaysJob2" min="1" max="7" value="5" onchange="calculateJob2Salary()">
-                <span id="workingDaysJob2Value">5</span>
-            </div>
-
-            <h3>Зарплата</h3>
-            <p>День: <span id="job2Daily">0</span></p>
-            <p>Неделя: <span id="job2Weekly">0</span></p>
-            <p>Месяц: <span id="job2Monthly">0</span></p>
-            <p>Год: <span id="job2Yearly">0</span></p>
+            <label>Количество рабочих дней в неделю:</label>
+            <input type="range" id="workingDaysJob3" min="1" max="7" value="5" onchange="updateWorkingDays(3)">
+            <span id="workingDaysJob3Value">5</span>
         </div>
+
     </div>
 
     <script src="script.js"></script>
