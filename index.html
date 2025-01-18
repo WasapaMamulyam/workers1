@@ -1,61 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salary Calculator</title>
+    <title>Считаем лавэшку</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <div class="container">
-        <h1>Salary Calculator</h1>
+        <h1>Считаем лавэшку</h1>
         
-        <!-- Vacancy Selector -->
-        <label for="vacancy-select">Select Vacancy:</label>
+        <!-- Выбор вакансии -->
+        <label for="vacancy-select">Выберите вакансию:</label>
         <select id="vacancy-select">
-            <option value="courier">Courier</option>
-            <option value="chemist">Chemist</option>
-            <option value="warehouse">Warehouse</option>
+            <option value="courier">Курьер</option>
+            <option value="chemist">Химик</option>
+            <option value="warehouse">Склад</option>
         </select>
 
-        <!-- Slider and Salary Info for Courier -->
+        <!-- Ползунок и информация о зарплате для Курьера -->
         <div id="courier" class="vacancy">
-            <h2>Courier</h2>
-            <label for="deliveries">Deliveries per day (1-200):</label>
+            <h2>Курьер</h2>
+            <label for="deliveries">Количество доставок в день (1-200):</label>
             <input type="range" id="deliveries" min="1" max="200" value="5">
             <span id="delivery-value">5</span>
-            <p>Salary for 1 delivery: 2400</p>
-            <p>Total for the day: <span id="total-day">12000</span></p>
-            <p>Total for the week: <span id="total-week">84000</span></p>
-            <p>Total for the month: <span id="total-month">336000</span></p>
-            <p>Total for the year: <span id="total-year">4032000</span></p>
+            <p>Зарплата за 1 доставку: 2400</p>
+            <p>Итого за день: <span id="total-day">12000</span></p>
+            <p>Итого за неделю: <span id="total-week">84000</span></p>
+            <p>Итого за месяц: <span id="total-month">336000</span></p>
+            <p>Итого за год: <span id="total-year">4032000</span></p>
         </div>
 
-        <!-- Slider and Salary Info for Chemist -->
+        <!-- Ползунок и информация о зарплате для Химика -->
         <div id="chemist" class="vacancy">
-            <h2>Chemist</h2>
-            <label for="quantity">Product Quantity (1-7 days/week):</label>
+            <h2>Химик</h2>
+            <label for="quantity">Количество продукции (1-7 дней/неделя):</label>
             <input type="range" id="days" min="1" max="7" value="5">
             <span id="days-value">5</span>
-            <p>Salary per 500g: 100000</p>
-            <p>Total for the day: <span id="chemist-day">500000</span></p>
-            <p>Total for the week: <span id="chemist-week">3500000</span></p>
-            <p>Total for the month: <span id="chemist-month">14000000</span></p>
-            <p>Total for the year: <span id="chemist-year">168000000</span></p>
+            <p>Зарплата за 500г: 100000</p>
+            <p>Итого за день: <span id="chemist-day">500000</span></p>
+            <p>Итого за неделю: <span id="chemist-week">3500000</span></p>
+            <p>Итого за месяц: <span id="chemist-month">14000000</span></p>
+            <p>Итого за год: <span id="chemist-year">168000000</span></p>
         </div>
 
-        <!-- Slider and Salary Info for Warehouse -->
+        <!-- Ползунок и информация о зарплате для Склада -->
         <div id="warehouse" class="vacancy">
-            <h2>Warehouse</h2>
-            <label for="warehouse-days">Days worked per week (1-7):</label>
+            <h2>Склад</h2>
+            <label for="warehouse-days">Количество рабочих дней в неделю (1-7):</label>
             <input type="range" id="warehouse-days" min="1" max="7" value="5">
             <span id="warehouse-days-value">5</span>
-            <p>Salary per 50g delivery: 5000</p>
-            <p>Total for the day: <span id="warehouse-day">25000</span></p>
-            <p>Total for the week: <span id="warehouse-week">175000</span></p>
-            <p>Total for the month: <span id="warehouse-month">700000</span></p>
-            <p>Total for the year: <span id="warehouse-year">8400000</span></p>
+            <p>Зарплата за 50г доставки: 5000</p>
+            <p>Итого за день: <span id="warehouse-day">25000</span></p>
+            <p>Итого за неделю: <span id="warehouse-week">175000</span></p>
+            <p>Итого за месяц: <span id="warehouse-month">700000</span></p>
+            <p>Итого за год: <span id="warehouse-year">8400000</span></p>
         </div>
     </div>
 
