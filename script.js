@@ -1,4 +1,4 @@
-// Функция для обновления отображения вакансий и расчета зарплаты
+// Функция для обновления отображения вакансий
 function updateVacancy() {
   // Скрываем все секции
   document.getElementById('courierSection').style.display = 'none';
@@ -21,20 +21,32 @@ function updateVacancy() {
   calculateSalary();
 }
 
+// Функция для обновления значения под ползунком
+function updateValue(id) {
+  const slider = document.getElementById(id);
+  const valueDisplay = document.getElementById(id + "Value");
+  valueDisplay.textContent = slider.value;
+
+  // Выполняем перерасчет зарплаты
+  calculateSalary();
+}
+
 // Функция для расчета зарплаты
 function calculateSalary() {
+  // Получаем количество рабочих дней для каждого ползунка
+  const courierDays = parseInt(document.getElementById("courierDays").value || 0);
+  const chemistDays = parseInt(document.getElementById("chemistDays").value || 0);
+  const warehouseDays = parseInt(document.getElementById("warehouseDays").value || 0);
+
   // Курьер (2400 за каждый день работы)
-  const courierDays = parseInt(document.getElementById("courierDays") ? document.getElementById("courierDays").value : 0);
   const courierDaily = 2400;
   const courierDaySalary = courierDays * courierDaily;
 
   // Химик (100000 за 500г производства)
-  const chemistDays = parseInt(document.getElementById("chemistDays") ? document.getElementById("chemistDays").value : 0);
   const chemistDaily = 100000;
   const chemistDaySalary = chemistDays * chemistDaily;
 
   // Склад (оплата зависит от ползунка)
-  const warehouseDays = parseInt(document.getElementById("warehouseDays") ? document.getElementById("warehouseDays").value : 0);
   const warehouseDaily = 5000;
   const warehouseDaySalary = warehouseDays * warehouseDaily;
 
@@ -46,26 +58,4 @@ function calculateSalary() {
 
   // Обновление значений на странице
   document.getElementById("daySalary").textContent = totalDaySalary;
-  document.getElementById("weekSalary").textContent = totalWeekSalary;
-  document.getElementById("monthSalary").textContent = totalMonthSalary;
-  document.getElementById("yearSalary").textContent = totalYearSalary;
-
-  // Обновление значений под ползунками
-  if (courierDays > 0) {
-    document.getElementById("courierDaysValue").textContent = courierDays;
-  }
-  if (chemistDays > 0) {
-    document.getElementById("chemistDaysValue").textContent = chemistDays;
-  }
-  if (warehouseDays > 0) {
-    document.getElementById("warehouseDaysValue").textContent = warehouseDays;
-  }
-}
-
-// Инициализация страницы
-updateVacancy();
-
-// Слушатели событий для ползунков
-document.getElementById("courierDays")?.addEventListener("input", calculateSalary);
-document.getElementById("chemistDays")?.addEventListener("input", calculateSalary);
-document.getElementById("warehouseDays")?.addEventListener("input", calculateSalary);
+  document.getElementById("weekSalary").
