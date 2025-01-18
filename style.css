@@ -1,38 +1,33 @@
 body {
     font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
-    background-color: #f4f4f4;
 }
 
 .container {
-    width: 80%;
-    max-width: 800px;
-    margin-top: 20px;
     background-color: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 1000px;
 }
 
 h1 {
     text-align: center;
     font-size: 2em;
-    color: #333;
 }
 
-h3 {
-    font-size: 1.5em;
-    color: #333;
+.vacancy {
+    display: none;
 }
 
 label {
-    display: block;
-    margin-top: 10px;
     font-size: 1.2em;
     color: #555;
 }
@@ -44,12 +39,12 @@ input[type="range"] {
 
 span {
     font-weight: bold;
-    color: #555;
+    color: #007bff;
 }
 
-.jobForm {
-    margin-top: 20px;
-    display: block;
+select {
+    font-size: 1.2em;
+    margin-top: 10px;
 }
 
 p {
@@ -57,12 +52,8 @@ p {
     margin-top: 10px;
 }
 
-p span {
-    color: #007bff;
-}
-
 @media (max-width: 600px) {
     .container {
-        width: 95%;
+        width: 90%;
     }
 }
