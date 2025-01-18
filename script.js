@@ -20,61 +20,73 @@ function updateJobForm() {
   }
 }
 
+function calculateJob1Salary() {
+  const deliveriesPerDay = document.getElementById('deliveriesPerDay').value;
+  const workingDaysPerWeek = document.getElementById('workingDaysPerWeek').value;
+
+  // Оплата за доставку для Курьера (предположим, по 2400 руб. за доставку)
+  const dailySalary = deliveriesPerDay * 2400;
+  const weeklySalary = dailySalary * workingDaysPerWeek;
+  const monthlySalary = weeklySalary * 4;
+  const yearlySalary = monthlySalary * 12;
+
+  document.getElementById('job1Daily').textContent = dailySalary;
+  document.getElementById('job1Weekly').textContent = weeklySalary;
+  document.getElementById('job1Monthly').textContent = monthlySalary;
+  document.getElementById('job1Yearly').textContent = yearlySalary;
+
+  // Обновление значений на экране
+  document.getElementById('deliveriesPerDayValue').textContent = deliveriesPerDay;
+  document.getElementById('workingDaysPerWeekValue').textContent = workingDaysPerWeek;
+}
+
 function updateJob2Form() {
   const job2Option = document.getElementById('job2Option').value;
   const job2Slider = document.getElementById('job2Slider');
-
+  
   if (job2Option === '1') {  // ГОРОД
     job2Slider.innerHTML = `
-      <label> 50г : </label>
+      <label>50г:</label>
       <input type="range" id="deliveriesJob2_50" min="1" max="40" value="1" onchange="calculateJob2Salary()">
-      <p>50г: <span id="deliveriesJob2_50Value">1</span> | Заработано: <span id="earningsJob2_50">5000</span> руб</p>
-
-      <label> 100г : </label>
+      <p>50: <span id="deliveriesJob2_50Value">1</span></p>
+      
+      <label>100г:</label>
       <input type="range" id="deliveriesJob2_100" min="1" max="40" value="1" onchange="calculateJob2Salary()">
-      <p>100г: <span id="deliveriesJob2_100Value">1</span> | Заработано: <span id="earningsJob2_100">8000</span> руб</p>
-
-      <label> 200г : </label>
+      <p>100: <span id="deliveriesJob2_100Value">1</span></p>
+      
+      <label>200г:</label>
       <input type="range" id="deliveriesJob2_200" min="1" max="40" value="1" onchange="calculateJob2Salary()">
-      <p>200г: <span id="deliveriesJob2_200Value">1</span> | Заработано: <span id="earningsJob2_200">15000</span> руб</p>
-
-      <label> 300г : </label>
+      <p>200: <span id="deliveriesJob2_200Value">1</span></p>
+      
+      <label>300г:</label>
       <input type="range" id="deliveriesJob2_300" min="1" max="40" value="1" onchange="calculateJob2Salary()">
-      <p>300г: <span id="deliveriesJob2_300Value">1</span> | Заработано: <span id="earningsJob2_300">20000</span> руб</p>
-
-      <label> 500г : </label>
+      <p>300: <span id="deliveriesJob2_300Value">1</span></p>
+      
+      <label>500г:</label>
       <input type="range" id="deliveriesJob2_500" min="1" max="40" value="1" onchange="calculateJob2Salary()">
-      <p>500г: <span id="deliveriesJob2_500Value">1</span> | Заработано: <span id="earningsJob2_500">30000</span> руб</p>
-
-      <label> Рабочие дни в неделю : </label>
-      <input type="range" id="workingDaysJob2" min="1" max="7" value="7" onchange="calculateJob2Salary()">
-      <p>Рабочие дни: <span id="workingDaysJob2Value">7</span></p>
+      <p>500: <span id="deliveriesJob2_500Value">1</span></p>
     `;
   } else {  // ЛЕС
     job2Slider.innerHTML = `
-      <label> 50г : </label>
+      <label>50г:</label>
       <input type="range" id="deliveriesJob2_50" min="1" max="40" value="1" onchange="calculateJob2Salary()">
-      <p>50г: <span id="deliveriesJob2_50Value">1</span> | Заработано: <span id="earningsJob2_50">3000</span> руб</p>
-
-      <label> 100г : </label>
+      <p>50: <span id="deliveriesJob2_50Value">1</span></p>
+      
+      <label>100г:</label>
       <input type="range" id="deliveriesJob2_100" min="1" max="40" value="1" onchange="calculateJob2Salary()">
-      <p>100г: <span id="deliveriesJob2_100Value">1</span> | Заработано: <span id="earningsJob2_100">6000</span> руб</p>
-
-      <label> 200г : </label>
+      <p>100: <span id="deliveriesJob2_100Value">1</span></p>
+      
+      <label>200г:</label>
       <input type="range" id="deliveriesJob2_200" min="1" max="40" value="1" onchange="calculateJob2Salary()">
-      <p>200г: <span id="deliveriesJob2_200Value">1</span> | Заработано: <span id="earningsJob2_200">9000</span> руб</p>
-
-      <label> 300г : </label>
+      <p>200: <span id="deliveriesJob2_200Value">1</span></p>
+      
+      <label>300г:</label>
       <input type="range" id="deliveriesJob2_300" min="1" max="40" value="1" onchange="calculateJob2Salary()">
-      <p>300г: <span id="deliveriesJob2_300Value">1</span> | Заработано: <span id="earningsJob2_300">13000</span> руб</p>
-
-      <label> 500г : </label>
+      <p>300: <span id="deliveriesJob2_300Value">1</span></p>
+      
+      <label>500г:</label>
       <input type="range" id="deliveriesJob2_500" min="1" max="40" value="1" onchange="calculateJob2Salary()">
-      <p>500г: <span id="deliveriesJob2_500Value">1</span> | Заработано: <span id="earningsJob2_500">20000</span> руб</p>
-
-      <label> Рабочие дни в неделю : </label>
-      <input type="range" id="workingDaysJob2" min="1" max="7" value="7" onchange="calculateJob2Salary()">
-      <p>Рабочие дни: <span id="workingDaysJob2Value">7</span></p>
+      <p>500: <span id="deliveriesJob2_500Value">1</span></p>
     `;
   }
 }
@@ -87,37 +99,29 @@ function calculateJob2Salary() {
   const deliveriesJob2_500 = document.getElementById('deliveriesJob2_500').value;
   const workingDaysJob2 = document.getElementById('workingDaysJob2').value;
 
-  let dailySalary = 0;
-  let earnings50 = deliveriesJob2_50 * (job2Option === '1' ? 5000 : 3000);
-  let earnings100 = deliveriesJob2_100 * (job2Option === '1' ? 8000 : 6000);
-  let earnings200 = deliveriesJob2_200 * (job2Option === '1' ? 15000 : 9000);
-  let earnings300 = deliveriesJob2_300 * (job2Option === '1' ? 20000 : 13000);
-  let earnings500 = deliveriesJob2_500 * (job2Option === '1' ? 30000 : 20000);
-
-  dailySalary = earnings50 + earnings100 + earnings200 + earnings300 + earnings500;
+  // Расчет зарплаты для ГОРОД
+  const citySalaryRates = [5000, 8000, 15000, 20000, 30000];
+  
+  let dailySalary = deliveriesJob2_50 * citySalaryRates[0] +
+                    deliveriesJob2_100 * citySalaryRates[1] +
+                    deliveriesJob2_200 * citySalaryRates[2] +
+                    deliveriesJob2_300 * citySalaryRates[3] +
+                    deliveriesJob2_500 * citySalaryRates[4];
+  
+  // Расчет зарплаты для ЛЕС
+  const forestSalaryRates = [3000, 6000, 9000, 13000, 20000];
+  if (document.getElementById('job2Option').value === '2') {
+    dailySalary = deliveriesJob2_50 * forestSalaryRates[0] +
+                  deliveriesJob2_100 * forestSalaryRates[1] +
+                  deliveriesJob2_200 * forestSalaryRates[2] +
+                  deliveriesJob2_300 * forestSalaryRates[3] +
+                  deliveriesJob2_500 * forestSalaryRates[4];
+  }
 
   const weeklySalary = dailySalary * workingDaysJob2;
   const monthlySalary = weeklySalary * 4;
   const yearlySalary = monthlySalary * 12;
 
-  // Обновляем заработок по каждому ползунку
-  document.getElementById('earningsJob2_50').textContent = earnings50;
-  document.getElementById('earningsJob2_100').textContent = earnings100;
-  document.getElementById('earningsJob2_200').textContent = earnings200;
-  document.getElementById('earningsJob2_300').textContent = earnings300;
-  document.getElementById('earningsJob2_500').textContent = earnings500;
-
-  // Обновляем общее количество доставок для каждого ползунка
-  document.getElementById('deliveriesJob2_50Value').textContent = deliveriesJob2_50;
-  document.getElementById('deliveriesJob2_100Value').textContent = deliveriesJob2_100;
-  document.getElementById('deliveriesJob2_200Value').textContent = deliveriesJob2_200;
-  document.getElementById('deliveriesJob2_300Value').textContent = deliveriesJob2_300;
-  document.getElementById('deliveriesJob2_500Value').textContent = deliveriesJob2_500;
-
-  // Обновляем рабочие дни
-  document.getElementById('workingDaysJob2Value').textContent = workingDaysJob2;
-
-  // Обновляем общий заработок по дням, неделям, месяцам и годам
   document.getElementById('job2Daily').textContent = dailySalary;
   document.getElementById('job2Weekly').textContent = weeklySalary;
   document.getElementById('job2Monthly').textContent = monthlySalary;
