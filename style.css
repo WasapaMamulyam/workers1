@@ -1,3 +1,4 @@
+/* Общие стили */
 body {
   font-family: Arial, sans-serif;
   display: flex;
@@ -66,44 +67,34 @@ p span {
   color: #007bff;
 }
 
-#job2Slider label {
-  font-size: 1em;
-}
-
-#job2Slider input[type="range"] {
-  width: 100%;
-}
-
-#job2Slider p {
-  font-size: 1.1em;
-  margin-top: 10px;
-}
-
 @media (max-width: 600px) {
   .container {
     width: 95%;
   }
 }
 
-@media (max-width: 400px) {
-  h1 {
-    font-size: 1.5em;
-  }
+/* Стили для скрытых форм */
+.jobForm {
+  display: block; /* Показываем форму, если она активна */
+}
 
-  h2 {
-    font-size: 1.3em;
-  }
+input[type="range"] {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 10px;
+}
 
-  label {
-    font-size: 1em;
-  }
+/* Дополнительные стили для корректной видимости текста */
+p {
+  font-size: 1.1em;
+  margin-top: 10px;
+}
 
-  span {
-    font-size: 1em;
-  }
+span {
+  font-weight: bold;
+  color: #333;
+}
 
-  select,
-  input[type="range"] {
-    font-size: 1em;
-  }
+#job2Slider {
+  margin-top: 20px;
 }
