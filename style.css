@@ -66,8 +66,44 @@ p span {
   color: #007bff;
 }
 
+#job2Slider label {
+  font-size: 1em;
+}
+
+#job2Slider input[type="range"] {
+  width: 100%;
+}
+
+#job2Slider p {
+  font-size: 1.1em;
+  margin-top: 10px;
+}
+
 @media (max-width: 600px) {
   .container {
     width: 95%;
+  }
+}
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 1.5em;
+  }
+
+  h2 {
+    font-size: 1.3em;
+  }
+
+  label {
+    font-size: 1em;
+  }
+
+  span {
+    font-size: 1em;
+  }
+
+  select,
+  input[type="range"] {
+    font-size: 1em;
   }
 }
